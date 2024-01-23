@@ -1,6 +1,6 @@
 {
-  "name": "cdp-node-journey-test-template",
-  "version": "1.0.0",
+  "name": "cdp-portal-smoke-tests",
+  "version": "0.0.0",
   "description": "",
   "engines": {
     "node": ">=20.3.0"
