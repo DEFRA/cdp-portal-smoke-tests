@@ -12,9 +12,6 @@ USER root
 
 ARG PARENT_VERSION
 
-COPY certificates/cdp-ca-certs.crt /usr/local/share/ca-certificates/cdp-ca-certs.crt
-ENV NODE_EXTRA_CA_CERTS=/usr/local/share/ca-certificates/cdp-ca-certs.crt
-
 COPY . .
 RUN npm install
 

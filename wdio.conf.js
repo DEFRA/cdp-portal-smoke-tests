@@ -1,5 +1,4 @@
-const debug = process.env.DE// wdio.config.ts
-const { TimelineService } = require('wdio-timeline-reporter/timeline-service');
+const debug = process.env.DE // wdio.config.ts
 
 export const config = {
   //
@@ -8,10 +7,6 @@ export const config = {
   // ====================
   // WebdriverIO supports running e2e tests as well as unit and component tests.
   runner: 'local',
-  //hostname: process.env.CHROMEDRIVER_URL  || '127.0.0.1',  // In the CDP runners, chromedriver is supplied via a sidecar running on localhost:5555
-  //port: Number(process.env.CHROMEDRIVER_PORT) || 4444,
-hostname: '127.0.0.1',
-  port: 4444,
   //
   // Set a base URL in order to shorten url command calls. If your `url` parameter starts
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
@@ -67,10 +62,10 @@ hostname: '127.0.0.1',
   capabilities: [
     {
       browserName: 'chrome',
-      hostname: process.env.CHROMEDRIVER_URL  || '127.0.0.1',
+      hostname: process.env.CHROMEDRIVER_URL || '127.0.0.1',
       port: process.env.CHROMEDRIVER_PORT | 4444,
-     'wdio:chromedriverOptions': {}
-     }
+      'wdio:chromedriverOptions': {}
+    }
   ],
 
   execArgv: debug ? ['--inspect'] : [],
