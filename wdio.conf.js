@@ -1,4 +1,5 @@
-const debug = process.env.DEBUG
+const debug = process.env.DE// wdio.config.ts
+const { TimelineService } = require('wdio-timeline-reporter/timeline-service');
 
 export const config = {
   //
@@ -7,13 +8,16 @@ export const config = {
   // ====================
   // WebdriverIO supports running e2e tests as well as unit and component tests.
   runner: 'local',
-
+  //hostname: process.env.CHROMEDRIVER_URL  || '127.0.0.1',  // In the CDP runners, chromedriver is supplied via a sidecar running on localhost:5555
+  //port: Number(process.env.CHROMEDRIVER_PORT) || 4444,
+hostname: '127.0.0.1',
+  port: 4444,
   //
   // Set a base URL in order to shorten url command calls. If your `url` parameter starts
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  baseUrl: 'http://localhost:3000',
+  baseUrl: process.env.BASE_URL || 'http://localhost:3000',
 
   //
   // ==================
@@ -53,7 +57,7 @@ export const config = {
   // and 30 processes will get spawned. The property handles how many capabilities
   // from the same test should run tests.
   //
-  maxInstances: debug ? 1 : 3,
+  maxInstances: 10,
   //
   // If you have trouble getting all important capabilities together, check out the
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -63,11 +67,10 @@ export const config = {
   capabilities: [
     {
       browserName: 'chrome',
-      browserVersion: 'stable',
-      'goog:chromeOptions': {
-        args: ['headless', 'disable-gpu']
-      }
-    }
+      hostname: process.env.CHROMEDRIVER_URL  || '127.0.0.1',
+      port: process.env.CHROMEDRIVER_PORT | 4444,
+     'wdio:chromedriverOptions': {}
+     }
   ],
 
   execArgv: debug ? ['--inspect'] : [],
@@ -136,8 +139,8 @@ export const config = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
-  reporters: ['spec'],
 
+  reporters: ['spec'],
   //
   // Options to be passed to Mocha.
   // See the full list at http://mochajs.org/

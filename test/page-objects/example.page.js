@@ -16,7 +16,7 @@ class ExamplePage extends Page {
   }
 
   open() {
-    return super.open('/cdp-example-journey-test')
+    return super.open('/')
   }
 }
 
