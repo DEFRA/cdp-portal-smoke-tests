@@ -17,6 +17,10 @@ export const config = {
   // gets prepended directly.
   baseUrl: process.env.BASE_URL || 'http://localhost:3000',
 
+  // Connection to remote chromedriver
+  hostname: process.env.CHROMEDRIVER_URL || '127.0.0.1',
+  port: process.env.CHROMEDRIVER_PORT || 4444,
+
   //
   // ==================
   // Specify Test Files
@@ -64,10 +68,7 @@ export const config = {
 
   capabilities: [
     {
-      browserName: 'chrome',
-      hostname: process.env.CHROMEDRIVER_URL || '127.0.0.1',
-      port: process.env.CHROMEDRIVER_PORT | 4444,
-      'wdio:chromedriverOptions': {}
+      browserName: 'chrome'
     }
   ],
 
