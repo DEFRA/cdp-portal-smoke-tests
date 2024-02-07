@@ -12,7 +12,7 @@
     "test": "npm run clean && wdio run wdio.conf.js",
     "test:local": "npm run clean && wdio run wdio.local.conf.js",
     "test:local:debug": "DEBUG=true npm run test:local",
-    "test:publish": "npm test ; ./bin/publish-tests.sh",
+    "test:publish": "npm test; allure generate allure-results --clean; ./bin/publish-tests.sh",
     "format": "prettier --write 'test/**/*.js' '**/*.{js,md,json,config.js}'",
     "format:check": "prettier --check 'test/**/*.js' '**/*.{js,md,json,config.js}'",
     "lint": "eslint .",
