@@ -1,10 +1,6 @@
 #!/bin/bash
 
 DIRECTORY="$PWD/allure-report"
-ls -la
-
-echo "uploading the readme as a test"
-aws s3 cp /app/README.md "$RESULTS_OUTPUT_S3_PATH/README.md"
 
 echo "Publishing test results to S3"
 

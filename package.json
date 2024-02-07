@@ -12,13 +12,14 @@
     "test": "npm run clean && wdio run wdio.conf.js",
     "test:local": "npm run clean && wdio run wdio.local.conf.js",
     "test:local:debug": "DEBUG=true npm run test:local",
-    "test:publish": "npm test; allure generate allure-results --clean; ./bin/publish-tests.sh",
+    "test:publish": "npm test; npm run report; ./bin/publish-tests.sh",
     "format": "prettier --write 'test/**/*.js' '**/*.{js,md,json,config.js}'",
     "format:check": "prettier --check 'test/**/*.js' '**/*.{js,md,json,config.js}'",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "postinstall": "npm run setup:husky",
-    "setup:husky": "node -e \"try { require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\""
+    "setup:husky": "node -e \"try { require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\"",
+    "report": "allure generate allure-results --single-file --clean"
   },
   "dependencies": {
     "@babel/cli": "7.23.4",
