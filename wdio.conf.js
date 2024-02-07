@@ -1,5 +1,3 @@
-const allure = require('allure-commandline')
-
 const debug = process.env.DEBUG
 const oneHour = 60 * 60 * 1000
 
@@ -300,7 +298,6 @@ export const config = {
    * @param {<Object>} results object containing test results
    */
   onComplete: function (exitCode, config, capabilities, results) {
-    allure(['generate', 'allure-results', '--clean'])
   }
   /**
    * Gets executed when a refresh happens.
