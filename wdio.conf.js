@@ -297,8 +297,7 @@ export const config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {<Object>} results object containing test results
    */
-  onComplete: function (exitCode, config, capabilities, results) {
-  }
+  onComplete: function (exitCode, config, capabilities, results) {}
   /**
    * Gets executed when a refresh happens.
    * @param {string} oldSessionId session ID of the old session
