@@ -139,7 +139,7 @@ export const config = {
   // see also: https://webdriver.io/docs/dot-reporter
 
   reporters: [
-    'dot',
+    'spec',
     [
       'allure',
       {
