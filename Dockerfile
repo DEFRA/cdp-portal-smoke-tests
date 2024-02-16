@@ -5,6 +5,7 @@ ENV TZ="Europe/London"
 USER root
 
 RUN apk add --no-cache \
+    bash \
     openjdk17-jre-headless \
     curl \
     aws-cli
