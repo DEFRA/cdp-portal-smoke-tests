@@ -139,7 +139,13 @@ export const config = {
   // see also: https://webdriver.io/docs/dot-reporter
 
   reporters: [
-    'spec',
+    [
+      'spec',
+      {
+        addConsoleLogs: true,
+        realtimeReporting: true
+      }
+    ],
     [
       'allure',
       {

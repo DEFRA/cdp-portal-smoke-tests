@@ -14,4 +14,4 @@ WORKDIR /app
 COPY . .
 RUN npm install
 
-ENTRYPOINT [ "npm", "run", "test:publish" ]
+ENTRYPOINT [ "./entrypoint.sh" ]
