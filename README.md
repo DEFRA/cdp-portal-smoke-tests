@@ -1,6 +1,6 @@
 # cdp-portal-smoke-tests
 
-## Config
+Example Smoke Test. To be run from the CDP Portal Frontend.
 
 ## Licence
 
