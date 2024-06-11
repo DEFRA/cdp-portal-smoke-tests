@@ -3,9 +3,6 @@
 npm test
 test_exit_code=$?
 
-#Add delay for testing
-sleep 300
-
 npm run report:publish
 publish_exit_code=$?
 
