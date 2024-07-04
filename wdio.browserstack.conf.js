@@ -139,10 +139,12 @@ export const config = {
         acceptInsecureCerts: true,
         forceLocal: true,
         browserstackLocal: true,
-        proxyHost: `proxy.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
-        proxyPort: '443',
-        proxyUser: process.env.SQUID_USERNAME,
-        proxyPass: process.env.SQUID_PASSWORD
+        opts: {
+          proxyHost: `proxy.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
+          proxyPort: '443',
+          proxyUser: process.env.SQUID_USERNAME,
+          proxyPass: process.env.SQUID_PASSWORD
+        }
       }
     ]
   ],
