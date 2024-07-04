@@ -1,5 +1,8 @@
 const debug = process.env.DEBUG
 const oneHour = 60 * 60 * 1000
+
+const host = process.env.ENVIRONMENT === 'management' ? 'portal' : 'portal-test'
+
 export const config = {
   //
   // ====================
@@ -12,7 +15,7 @@ export const config = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  baseUrl: `https://portal.cdp-int.defra.cloud`,
+  baseUrl: `https://${host}.cdp-int.defra.cloud`,
 
   //
   // ==================

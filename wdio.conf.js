@@ -1,6 +1,8 @@
 const debug = process.env.DEBUG
 const oneHour = 60 * 60 * 1000
 
+const host = process.env.ENVIRONMENT === 'management' ? 'portal' : 'portal-test'
+
 export const config = {
   //
   // ====================
@@ -13,8 +15,7 @@ export const config = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  baseUrl: `https://portal.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
-  // baseUrl: `https://${process.env.BASE_URL}/service-name`,
+  baseUrl: `https://${host}.cdp-int.defra.cloud`,
 
   // Connection to remote chromedriver
   hostname: process.env.CHROMEDRIVER_URL || '127.0.0.1',
