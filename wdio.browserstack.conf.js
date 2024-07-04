@@ -141,7 +141,7 @@ export const config = {
         browserstackLocal: true,
         proxyHost: `proxy.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
         proxyPort: '443',
-        proxyUser: process.env.SQUID_USER,
+        proxyUser: process.env.SQUID_USERNAME,
         proxyPass: process.env.SQUID_PASSWORD
       }
     ]
