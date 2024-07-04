@@ -9,7 +9,7 @@
   "license": "OGL-UK-3.0",
   "scripts": {
     "clean": "rm -rf allure-results && rm -rf allure-report",
-    "test": "npm run clean && wdio run wdio.conf.js",
+    "test": "npm run clean && wdio run wdio.browserstack.conf.js",
     "test:local": "npm run clean && wdio run wdio.local.conf.js",
     "test:local:debug": "DEBUG=true npm run test:local",
     "format": "prettier --write 'test/**/*.js' '**/*.{js,md,json,config.js}'",
@@ -27,6 +27,7 @@
     "@babel/preset-env": "7.23.8",
     "@babel/register": "7.23.7",
     "@wdio/allure-reporter": "8.29.2",
+    "@wdio/browserstack-service": "8.38.2",
     "@wdio/cli": "8.29.0",
     "@wdio/globals": "8.29.0",
     "@wdio/local-runner": "8.29.0",
