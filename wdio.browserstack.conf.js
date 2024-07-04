@@ -1,6 +1,5 @@
 const debug = process.env.DEBUG
 const oneHour = 60 * 60 * 1000
-
 export const config = {
   //
   // ====================
@@ -13,10 +12,7 @@ export const config = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  baseUrl: `https://portal.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
-  // Connection to remote chromedriver
-  hostname: process.env.CHROMEDRIVER_URL || '127.0.0.1',
-  port: process.env.CHROMEDRIVER_PORT || 4444,
+  baseUrl: `https://portal.cdp-int.defra.cloud`,
 
   //
   // ==================
@@ -140,7 +136,7 @@ export const config = {
         acceptInsecureCerts: true,
         forceLocal: true,
         browserstackLocal: true,
-        proxyHost: `proxy.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
+        proxyHost: `proxy.management.cdp-int.defra.cloud`,
         proxyPort: '443',
         proxyUser: process.env.SQUID_USER,
         proxyPass: process.env.SQUID_PASSWORD
