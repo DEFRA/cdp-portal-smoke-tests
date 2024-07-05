@@ -1,5 +1,3 @@
-require('global-agent/bootstrap')
-
 const debug = process.env.DEBUG
 const oneHour = 60 * 60 * 1000
 
@@ -142,10 +140,10 @@ export const config = {
         forceLocal: true,
         browserstackLocal: true,
         opts: {
-          proxyHost: `proxy.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
-          proxyPort: '443',
-          proxyUser: process.env.SQUID_USERNAME,
-          proxyPass: process.env.SQUID_PASSWORD
+          localProxyHost: `proxy.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
+          localProxyPort: '443',
+          localProxyUser: process.env.SQUID_USERNAME,
+          localProxyPass: process.env.SQUID_PASSWORD
         }
       }
     ]
