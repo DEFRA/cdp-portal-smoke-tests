@@ -1,5 +1,7 @@
 #!/bin/sh
 
+./test-proxy.sh
+
 npm test
 test_exit_code=$?
 
