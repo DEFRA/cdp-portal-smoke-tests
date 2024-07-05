@@ -1,3 +1,5 @@
+require('global-agent/bootstrap')
+
 const debug = process.env.DEBUG
 const oneHour = 60 * 60 * 1000
 
@@ -108,18 +110,18 @@ export const config = {
   //
   // If you only want to run your tests until a specific amount of tests have failed use
   // bail (default is 0 - don't bail, run all tests).
-  bail: 0,
+  bail: 1,
   //
   // Default timeout for all waitFor* commands.
-  waitforTimeout: 10000,
+  waitforTimeout: 3000,
   waitforInterval: 200,
   //
   // Default timeout in milliseconds for request
   // if browser driver or grid doesn't send response
-  connectionRetryTimeout: 120000,
+  connectionRetryTimeout: 1000 * 5,
   //
   // Default request retries count
-  connectionRetryCount: 3,
+  connectionRetryCount: 2,
   //
   // Test runner services
   // Services take over a specific job you don't want to take care of. They enhance
@@ -141,9 +143,9 @@ export const config = {
         browserstackLocal: true,
         opts: {
           proxyHost: `proxy.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
-          proxyPort: '443'
-          //, proxyUser: process.env.SQUID_USERNAME,
-          // proxyPass: process.env.SQUID_PASSWORD
+          proxyPort: '443',
+          proxyUser: process.env.SQUID_USERNAME,
+          proxyPass: process.env.SQUID_PASSWORD
         }
       }
     ]
@@ -190,7 +192,7 @@ export const config = {
   // See the full list at http://mochajs.org/
   mochaOpts: {
     ui: 'bdd',
-    timeout: debug ? oneHour : 60000
+    timeout: debug ? oneHour : 20000
   },
   //
   // =====
@@ -284,21 +286,7 @@ export const config = {
     test,
     context,
     { error, result, duration, passed, retries }
-  ) {
-    await browser.takeScreenshot()
-
-    if (passed) {
-      browser.executeScript(
-        'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": "Assertions passed"}}'
-      )
-    }
-
-    if (error) {
-      browser.executeScript(
-        'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "At least 1 assertion failed"}}'
-      )
-    }
-  },
+  ) {},
 
   /**
    * Hook that gets executed after the suite has ended
