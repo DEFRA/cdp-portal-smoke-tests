@@ -10,7 +10,7 @@ RUN apk add --no-cache \
     aws-cli
 
 WORKDIR /app
-RUN curl -q -o BrowserStackLocal https://www.browserstack.com/local-testing/downloads/binaries/BrowserStackLocal-alpine
+RUN curl -q -o BrowserStackLocal https://www.browserstack.com/local-testing/downloads/binaries/BrowserStackLocal-alpine && chmod +x ./BrowserStackLocal
 
 COPY . .
 RUN npm install
