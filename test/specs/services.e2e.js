@@ -10,5 +10,6 @@ describe('Service page', () => {
       'Services | Core Delivery Platform - Portal'
     )
     await expect(ServicePage.pageHeading).toHaveText('Services')
+    await browser.deleteCookies()
   })
 })

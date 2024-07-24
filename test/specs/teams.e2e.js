@@ -7,5 +7,6 @@ describe('Teams page', () => {
     await TeamsPage.open()
     await expect(browser).toHaveTitle('Teams | Core Delivery Platform - Portal')
     await expect(TeamsPage.pageHeading).toHaveText('Teams')
+    await browser.deleteCookies()
   })
 })
