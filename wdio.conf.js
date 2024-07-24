@@ -16,7 +16,7 @@ export const config = {
   baseUrl: `https://cdp-portal-frontend.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
 
   // Connection to remote chromedriver
-  hostname: process.env.CHROMEDRIVER_URL || '127.0.0.1',
+  hostname: process.env.CHROMEDRIVER_URL || 'localhost',
   port: process.env.CHROMEDRIVER_PORT || 4444,
 
   //
@@ -66,7 +66,17 @@ export const config = {
 
   capabilities: [
     {
-      browserName: 'chrome'
+      maxInstances: 1,
+      browserName: 'chrome',
+      'goog:chromeOptions': {
+        args: [
+          '--no-sandbox',
+          '--disable-infobars',
+          '--headless',
+          '--disable-gpu',
+          '--window-size=1920,1080'
+        ]
+      }
     }
   ],
 

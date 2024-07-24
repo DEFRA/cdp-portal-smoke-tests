@@ -4,6 +4,10 @@ import HomePage from 'page-objects/home.page'
 
 describe('Home page', () => {
   it('Should be on the "Home" page', async () => {
+    await browser.deleteCookies(['userSession'])
+    await browser.deleteCookies(['cdpPortalSession'])
+    await browser.url('')
+    await browser.maximizeWindow()
     await HomePage.open()
 
     await expect(browser).toHaveTitle('Home | Core Delivery Platform - Portal')
@@ -14,7 +18,5 @@ describe('Home page', () => {
     await expect(HomePage.pageHeading).toHaveText(
       'Build your Defra applications on the Core Delivery Platform'
     )
-
-    await browser.deleteCookies()
   })
 })
