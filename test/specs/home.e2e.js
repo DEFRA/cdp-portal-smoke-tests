@@ -14,5 +14,7 @@ describe('Home page', () => {
     await expect(HomePage.pageHeading).toHaveText(
       'Build your Defra applications on the Core Delivery Platform'
     )
+
+    await browser.deleteCookies()
   })
 })
