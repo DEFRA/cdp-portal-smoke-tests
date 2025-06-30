@@ -5,15 +5,15 @@ class Page {
     return $('h1')
   }
 
-  navItem(itemName) {
-    return $(`[data-testid="nav-${itemName}"]`)
+  navItem(navItemName) {
+    return $(`[data-testid="nav-${navItemName}"]`).parentElement()
   }
 
   async navIsActive(itemName) {
     const navItem = await this.navItem(itemName)
     const className = await navItem.getAttribute('class')
 
-    return className.includes('app-navigation__link--active')
+    return className.includes('govuk-service-navigation__item--active')
   }
 
   open(path) {
